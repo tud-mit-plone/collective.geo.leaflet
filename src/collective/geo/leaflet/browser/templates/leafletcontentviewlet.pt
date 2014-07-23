@@ -1,0 +1,25 @@
+<div id="leaflet-content-viewlet" tal:define="cgmap nocall:cgmap | nothing;
+                                              mapid string:map;">
+
+
+    <tal:comment replace="nothing">
+    map-widget macro is a copy/paste from collective/geo/mapwidget/browser/collectivegeo_macros.pt
+    but without openlayers integration
+    </tal:comment>
+ 
+    <metal:mapwidget
+                  tal:define="map_infos view/map_infos">
+      <div id="map" 
+           tal:attributes="data-latitude map_infos/latitude|nothing;
+              data-longitude map_infos/longitude|nothing;
+              data-zoom map_infos/zoom|nothing;
+              data-marker_image map_infos/marker_image;
+              style view/style|nothing"
+              ">
+      </div>
+    </metal:mapwidget>
+
+
+    <!--metal:use use-macro="context/@@collectivegeo-macros/geocoding" /-->
+
+</div>
