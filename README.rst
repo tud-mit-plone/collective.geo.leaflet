@@ -7,9 +7,11 @@ This package use the collective.geo.* suite with leaflet.
 
 TODO
 ====
-- [] Possibility to choose between below and above content body for map view.
+[ ] Folder view
 
-- [] testing
+[ ] Collection view
+
+[ ] Testing
 
 
 Dependencies
