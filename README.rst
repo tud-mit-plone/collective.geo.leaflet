@@ -11,6 +11,8 @@ TODO
 
 [ ] Collection view
 
+[ ] Get "attribution" map from registry
+
 [ ] Testing
 
 
