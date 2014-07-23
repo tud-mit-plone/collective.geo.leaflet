@@ -13,6 +13,8 @@ TODO
 
 [ ] Get "attribution" map from registry
 
+[ ] Get searcheable text from a geo attributes
+
 [ ] Testing
 
 
