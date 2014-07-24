@@ -10,6 +10,11 @@
         directory="static"
         />
 
+    <browser:resourceDirectory
+        name="collective.geo.leaflet.layers"
+        directory="layers"
+        />
+
 
     <browser:page
         for="..interfaces.ICollectiveGeoLeafletLayer"
@@ -33,5 +38,14 @@
         layer="..interfaces.ICollectiveGeoLeafletLayer"
         permission="zope2.View"
         />
+
+
+    <browser:page
+        name="collectivegeoleaflet-macros"
+        for="*"
+        class=".collectivegeoleaflet_macros.CollectiveGeoLeafletMacros"
+        permission="zope2.View"
+        />
+
 
 </configure>

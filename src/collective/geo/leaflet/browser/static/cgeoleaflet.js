@@ -1,37 +1,24 @@
+var baselayers = {};
+var overlayMaps = {};
+var map;
+var longitude = $('#map').data('longitude');
+var latitude = $('#map').data('latitude');
+var marker_url = $('#map').data('marker_image');
+map = new L.Map('map').setView([latitude, longitude], 13);
+
 $(document).ready(function() {
-    if ($('#map').length === 0) {
-        return;
-    }
 
+    var tiles = new L.TileLayer(
+        'http://mt{s}.google.com/vt/v=w2.106&x={x}&y={y}&z={z}&s=',
+        { subdomains:'0123', attribution:'&copy; Google 2012' }
+    );
+    //osm.addTo(map);
+    /*baseMaps['osm'] = osm;
+    baseMaps['google roadmap'] = googleroad;
+    baseMaps['google satelite'] = googlesat;
+    baseMaps['google terrain'] = googleterrain;
+    baseMaps['google hybrid'] = googlehybrid;
+    baseMaps['tiles'] = tiles;
+    */
 
-    var longitude = $('#map').data('longitude');
-    var latitude = $('#map').data('latitude');
-    var marker_url = $('#map').data('marker_image');
-
-    var map = new L.Map('map').setView([latitude, longitude], 13);
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-    //map.locate({setView: true});
-    var markercoord = [latitude, longitude];
-
-    //Extend the Default marker class
-    var CustomIcon = L.Icon.Default.extend({
-        options: {
-            iconUrl: 'img/marker.png', //marker_url
-        }
-    });
-
-    var customIcon = new CustomIcon();
-
-    var marker = L.marker(markercoord, {icon: customIcon}).addTo(map);
-
-    // XXX gettext via json
-    marker.bindPopup('text');
-
-    new L.Control.GeoSearch({
-        provider: new L.GeoSearch.Provider.OpenStreetMap(),
-        position: 'topcenter',
-        showMarker: true
-    }).addTo(map);
 });

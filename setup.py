@@ -47,7 +47,6 @@ setup(
         'collective.geo.geographer',
         'collective.geo.mapwidget',
         'collective.geo.behaviour',
-        'Shapely',
         'collective.js.leaflet',
         'collective.geo.contentlocations',
     ],

@@ -1,21 +1,28 @@
 # -*- coding: utf-8 -*-
-from plone.app.layout.viewlets import common
-
-from collective.geo.geographer.interfaces import IGeoreferenced
 from collective.geo.geographer.interfaces import IGeoreferenceable
+from collective.geo.geographer.interfaces import IGeoreferenced
 
-from collective.geo.mapwidget.browser.widget import MapLayers
 from collective.geo.mapwidget.utils import get_feature_styles
 
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from collective.geo.leaflet.interfaces import IMapLayer
+
+from collective.geo.settings.interfaces import IGeoFeatureStyle
+from collective.geo.settings.interfaces import IGeoSettings
+
 from plone import api
+from plone.app.layout.viewlets import common
+from plone.registry.interfaces import IRegistry
+
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.CMFCore.Expression import Expression, getExprContext
 
 from zope.schema import getFields
 from zope.component import getMultiAdapter
 from zope.component import getUtility
-
-from plone.registry.interfaces import IRegistry
-from collective.geo.settings.interfaces import IGeoFeatureStyle
+from zope.component import getGlobalSiteManager
+import json
+import logging
+logger = logging.getLogger("collective.geo.leaflet")
 
 
 class ContentViewlet(common.ViewletBase):
@@ -37,8 +44,6 @@ class ContentViewlet(common.ViewletBase):
                 'collective.geo.settings.interfaces.IGeoFeatureStyle.map_viewlet_position')
 
     def render(self):
-        if not IGeoreferenceable.providedBy(self.context):
-            return ""
         if self.manager.__name__ != self.map_viewlet_position:
             return ''
 
@@ -56,28 +61,58 @@ class ContentViewlet(common.ViewletBase):
         style = []
         if infos.get('map_height'):
             style.append('height: {}'.format(infos.get('map_height')))
+        else:
+            style.append('height: 600px')
         if infos.get('map_width'):
             style.append("width: {}".format(infos.get('map_width')))
+        else:
+            style.append("width: 800px")
         return ";".join(style)
 
     def make_popup(self):
+        # XXX should be in a template
         popup = "<div class='geo-popup'>"
         geo_infos = get_geo_infos(self.context)
         for prop in geo_infos.get('display_properties', []):
-            popup += self.context.get(prop)
+            popup += getattr(self.context, prop)()
+            popup += '<br />'
         popup += "</div>"
         return popup
 
+    def default_layers(self):
+        registred_layers = {}
+        ordered_layers = []
+        baselayers = []
+
+        gsm = getGlobalSiteManager()
+        for registration in gsm.registeredSubscriptionAdapters():
+            if registration.provided is IMapLayer:
+                layer = registration.factory(self.context, self.request)
+                registred_layers[layer.name] = layer
+
+        geosettings = getUtility(IRegistry).forInterface(IGeoSettings)
+        default_layers = geosettings.default_layers
+        if not default_layers:
+            default_layers = (u'osm',)
+
+        for default_layer in default_layers:
+            if default_layer in registred_layers.keys():
+                l = registred_layers[default_layer]
+                baselayers.append({"title": l.title, "name": l.name})
+                ordered_layers.append(l.index() % dict(name=l.name))
+
+        return {
+            "layers": "\n".join(ordered_layers),
+            "baselayers": json.dumps(baselayers)
+        }
 
 
-class LeafletMapViewletLayers(MapLayers):
-    '''
-    create all layers for this view.
-    '''
-
-    def layers(self):
-        layers = super(LeafletMapViewletLayers, self).layers()
-        return layers
+def get_marker_image(context, marker_img):
+    try:
+        marker_img = Expression(str(marker_img))(getExprContext(context))
+    except:
+        marker_img = ''
+    return marker_img
 
 
 def get_geo_infos(context):
@@ -101,4 +136,5 @@ def get_geo_infos(context):
     geo = IGeoreferenced(context)
     styles['longitude'] = geo.coordinates[0]
     styles['latitude'] = geo.coordinates[1]
+    styles['marker_image'] = get_marker_image(context, styles['marker_image'])
     return styles

@@ -29,4 +29,37 @@
         handler=".setuphandlers.post_install">
     </genericsetup:importStep>
 
+    <!-- Map layers -->
+
+    <subscriber
+        for="collective.geo.geographer.interfaces.IGeoreferenced"
+        provides=".interfaces.IMapLayer"
+        factory=".maplayers.OpenStreetMap"
+        />
+
+    <subscriber
+        for="collective.geo.geographer.interfaces.IGeoreferenced"
+        provides=".interfaces.IMapLayer"
+        factory=".maplayers.GoogleStreetMapLayer"
+        />
+
+    <subscriber
+        for="collective.geo.geographer.interfaces.IGeoreferenced"
+        provides=".interfaces.IMapLayer"
+        factory=".maplayers.GoogleSatelliteMapLayer"
+        />
+
+    <subscriber
+        for="collective.geo.geographer.interfaces.IGeoreferenced"
+        provides=".interfaces.IMapLayer"
+        factory=".maplayers.GoogleHybridMapLayer"
+        />
+
+    <subscriber
+        for="collective.geo.geographer.interfaces.IGeoreferenced"
+        provides=".interfaces.IMapLayer"
+        factory=".maplayers.GoogleTerrainMapLayer"
+        />
+
+
 </configure>
