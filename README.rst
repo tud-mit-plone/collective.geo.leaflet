@@ -17,6 +17,8 @@ TODO
 
 [ ] Testing
 
+[ ] Add uninstall profile
+
 
 Dependencies
 ============
