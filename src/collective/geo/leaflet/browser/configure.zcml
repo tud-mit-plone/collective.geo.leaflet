@@ -17,7 +17,7 @@
 
 
     <browser:page
-        for="..interfaces.ICollectiveGeoLeafletLayer"
+        for="*"
         name="geo-leaflet"
         permission="zope2.Public"
         class=".views.GeoLeaflet"
