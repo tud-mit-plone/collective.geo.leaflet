@@ -49,6 +49,7 @@ setup(
         'collective.geo.behaviour',
         'collective.js.leaflet',
         'collective.geo.contentlocations',
+        'collective.geo.geojson',
     ],
     extras_require={
         'test': [
