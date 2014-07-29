@@ -1,5 +1,4 @@
-<div id="leaflet-content-viewlet" tal:define="cgmap nocall:cgmap | nothing;
-                                              mapid string:map;">
+<div id="leaflet-content-viewlet">
 
 
     <tal:comment replace="nothing">

@@ -5,6 +5,7 @@ from collective.geo.geographer.interfaces import IGeoreferenced
 from collective.geo.mapwidget.utils import get_feature_styles
 
 from collective.geo.leaflet.interfaces import IMapLayer
+from collective.geo.leaflet import utils
 
 from collective.geo.settings.interfaces import IGeoFeatureStyle
 from collective.geo.settings.interfaces import IGeoSettings
@@ -19,8 +20,6 @@ from Products.CMFCore.Expression import Expression, getExprContext
 from zope.schema import getFields
 from zope.component import getMultiAdapter
 from zope.component import getUtility
-from zope.component import getGlobalSiteManager
-import json
 import logging
 logger = logging.getLogger("collective.geo.leaflet")
 
@@ -54,10 +53,10 @@ class ContentViewlet(common.ViewletBase):
             return ''
 
     def map_infos(self):
-        return get_geo_infos(self.context)
+        return utils.get_geo_infos(self.context)
 
     def style(self):
-        infos = get_geo_infos(self.context)
+        infos = utils.get_geo_infos(self.context)
         style = []
         if infos.get('map_height'):
             style.append('height: {}'.format(infos.get('map_height')))
@@ -72,7 +71,7 @@ class ContentViewlet(common.ViewletBase):
     def make_popup(self):
         # XXX should be in a template
         popup = "<div class='geo-popup'>"
-        geo_infos = get_geo_infos(self.context)
+        geo_infos = utils.get_geo_infos(self.context)
         for prop in geo_infos.get('display_properties', []):
             popup += getattr(self.context, prop)()
             popup += '<br />'
@@ -80,61 +79,4 @@ class ContentViewlet(common.ViewletBase):
         return popup
 
     def default_layers(self):
-        registred_layers = {}
-        ordered_layers = []
-        baselayers = []
-
-        gsm = getGlobalSiteManager()
-        for registration in gsm.registeredSubscriptionAdapters():
-            if registration.provided is IMapLayer:
-                layer = registration.factory(self.context, self.request)
-                registred_layers[layer.name] = layer
-
-        geosettings = getUtility(IRegistry).forInterface(IGeoSettings)
-        default_layers = geosettings.default_layers
-        if not default_layers:
-            default_layers = (u'osm',)
-
-        for default_layer in default_layers:
-            if default_layer in registred_layers.keys():
-                l = registred_layers[default_layer]
-                baselayers.append({"title": l.title, "name": l.name})
-                ordered_layers.append(l.index() % dict(name=l.name))
-
-        return {
-            "layers": "\n".join(ordered_layers),
-            "baselayers": json.dumps(baselayers)
-        }
-
-
-def get_marker_image(context, marker_img):
-    try:
-        marker_img = Expression(str(marker_img))(getExprContext(context))
-    except:
-        marker_img = ''
-    return marker_img
-
-
-def get_geo_infos(context):
-    if not IGeoreferenceable.providedBy(context):
-        return ""
-    fields = [i for i in getFields(IGeoFeatureStyle)]
-    manager = IGeoFeatureStyle(context, None)
-    if not manager:
-        return False
-    use_custom_styles = getattr(manager, 'use_custom_styles', False)
-    if not use_custom_styles:
-        registry = getUtility(IRegistry)
-        manager = registry.forInterface(IGeoFeatureStyle)
-
-    styles = {
-        'use_custom_styles': use_custom_styles
-    }
-    for name in fields:
-        styles[name] = getattr(manager, name, None)
-
-    geo = IGeoreferenced(context)
-    styles['longitude'] = geo.coordinates[0]
-    styles['latitude'] = geo.coordinates[1]
-    styles['marker_image'] = get_marker_image(context, styles['marker_image'])
-    return styles
+        return utils.default_layers(self.context, self.request)
