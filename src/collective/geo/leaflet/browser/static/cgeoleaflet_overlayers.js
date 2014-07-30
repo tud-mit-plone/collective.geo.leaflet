@@ -1,8 +1,8 @@
 var overlayers = {};
 urls = $('#geojson_url').data('geojson_url');
+var geojsons = [];
 for (u in urls) {
     url = urls[u];
-    var geojson;
     var layername;
     $.getJSON(url, function(data) {
         layername = data.title;
@@ -24,7 +24,10 @@ for (u in urls) {
                 var customIcon = new CustomIcon();
                 return L.marker(latlng, {icon: customIcon});
             }
-        });
-        overlayers[layername] = geojson;
+        }).addTo(map);
+        controllayers.addOverlay(geojson, layername);
+        //overlayers[layername] = geojson;
     });
 }
+
+controllayers.addTo(map);
