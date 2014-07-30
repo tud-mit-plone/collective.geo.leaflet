@@ -7,8 +7,10 @@
     </tal:comment>
  
     <metal:use use-macro="context/@@collectivegeoleaflet-macros/map-div" />
+    <metal:use use-macro="context/@@collectivegeoleaflet-macros/geo-popup-content" />
 
     <metal:use use-macro="context/@@collectivegeoleaflet-macros/map-init-leaflet" />
+    <metal:use use-macro="context/@@collectivegeoleaflet-macros/map-add-marker" />
     <metal:use use-macro="context/@@collectivegeoleaflet-macros/map-search" />
     
 </div>

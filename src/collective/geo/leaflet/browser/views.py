@@ -2,21 +2,24 @@
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
-from collective.geo.leaflet import utils
+from collective.geo.leaflet import geomap
+from zope.component import getMultiAdapter
+import json
 
 
 class GeoLeaflet(BrowserView):
 
     index = ViewPageTemplateFile("templates/geo-leaflet.pt")
 
-    def render(self):
-        return self.index()
+    def __init__(self, context, request):
+        super(GeoLeaflet, self).__init__(context, request)
+        self.geomap = geomap.GeoMap(context, request)
 
     def __call__(self):
         return self.render()
 
-    def map_infos(self):
-        return utils.get_geo_infos(self.context)
+    def render(self):
+         return self.index()
 
     def make_popup(self):
         # XXX should be in a template
@@ -28,3 +31,8 @@ class GeoLeaflet(BrowserView):
         popup += "</div>"
         return popup
 
+    def geojson_urls(self):
+        return json.dumps(["{}/@@geo-json.json".format(self.context.absolute_url())])
+
+    def geojson(self):
+        return getMultiAdapter((self.context, self.request), name="geo-json.json")

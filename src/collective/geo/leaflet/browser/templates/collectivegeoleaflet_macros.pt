@@ -15,23 +15,29 @@
 
    
     <metal:map-div define-macro="map-div"
-                  tal:define="map_infos view/map_infos">
+                  tal:define="geomap view/geomap;
+                              map_style geomap/geo_feature_style;
+                              map_settings geomap/geo_settings;
+                              map_center python:geomap.map_center();
+                              map_inline_style python:geomap.inline_style()">
         <div id="map" 
-             tal:attributes="data-latitude map_infos/latitude|nothing;
-                data-longitude map_infos/longitude|nothing;
-                data-zoom map_infos/zoom|nothing;
-                data-marker_image map_infos/marker_image;
-                style view/style|nothing">
-        </div>
-
-        <div class="hiddenStructure geo-popup-content">
-            <tal:block tal:content="structure view/make_popup">
-            </tal:block>
+             tal:attributes="data-latitude map_center/latitude|nothing;
+                data-longitude map_center/longitude|nothing;
+                data-zoom map_settings/zoom|nothing;
+                data-marker_image map_style/marker_image;
+                style map_inline_style|nothing">
         </div>
 
     </metal:map-div>
 
-    <metal:map-init-leaflet define-macro="map-init-leaflet">
+    <metal:map-popup-content define-macro="geo-popup-content">
+        <div class="hiddenStructure geo-popup-content">
+            <tal:block tal:content="structure view/make_popup">
+            </tal:block>
+        </div>
+    </metal:map-popup-content>
+
+    <metal:map-init-leaflet define-macro="map-init-leaflet" tal:define="geomap view/geomap;">
 
         <script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
         <script src="http://matchingnotes.com/javascripts/leaflet-google.js"></script>
@@ -40,11 +46,11 @@
         <script type="text/javascript" src="++resource++collective.geo.leaflet/cgeoleaflet.js">
         </script>
 
-        <tal:block tal:content="structure python:view.default_layers()['layers']">
+        <tal:block tal:content="structure python:geomap.default_layers()['layers']">
         </tal:block>
         
         <div class="baselayers" 
-            tal:attributes="data-baselayers python:view.default_layers()['baselayers']">
+            tal:attributes="data-baselayers python:geomap.default_layers()['baselayers']">
         </div>
         
         <script type="text/javascript" src="++resource++collective.geo.leaflet/cgeoleaflet_baselayers.js">
@@ -59,7 +65,23 @@
             //map.locate({setView: true});
             var osm2 = new L.TileLayer(osmUrl, {minZoom: 0, maxZoom: 13, attribution: osmAttrib});
             var miniMap = new L.Control.MiniMap(osm2).addTo(map);
+        </script>
+        
 
+    </metal:map-init-leaflet>
+
+    <metal:map-geojson define-macro="map-geojson">
+        <div id="geojson_url" 
+             tal:attributes="data-geojson_url view/geojson_urls" 
+             class="hiddenStructure">
+        </div>
+        <script type="text/javascript" src="++resource++collective.geo.leaflet/cgeoleaflet_overlayers.js">
+        </script>
+
+    </metal:map-geojson>
+
+    <metal:map-add-marker define-macro="map-add-marker">
+        <script type="text/javascript">
         //add marker
             var markercoord = [latitude, longitude];
 
@@ -78,10 +100,7 @@
             marker.bindPopup(popup_content);
         </script>
 
-
-
-
-    </metal:map-init-leaflet>
+    </metal:map-add-marker>
 
     <tal:comment replace="nothing">
       Macro to create html structure to geocoding feature.
