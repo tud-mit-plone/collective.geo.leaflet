@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <registry>
     <records interface="collective.geo.settings.interfaces.IGeoFeatureStyle">
-        <value key="marker_image">++resource++collective.js.leaflet/images/marker-icon.png</value>
+        <value key="marker_image">string:${portal_url}/++resource++collective.js.leaflet/images/marker-icon.png</value>
     </records>
 
     <record interface="Products.ResourceRegistries.interfaces.settings.IResourceRegistriesSettings" field="resourceBundlesForThemes">
