@@ -13,8 +13,8 @@
         <div id="leaflet-content-viewlet">
 
             <metal:use use-macro="context/@@collectivegeoleaflet-macros/map-div" />
-            <metal:use use-macro="context/@@collectivegeoleaflet-macros/map-init-leaflet" />
             <metal:use use-macro="context/@@collectivegeoleaflet-macros/map-geojson" />
+            <metal:use use-macro="context/@@collectivegeoleaflet-macros/map-init-leaflet" />
             <metal:use use-macro="context/@@collectivegeoleaflet-macros/map-search" />
 
         </div>

@@ -53,7 +53,7 @@
             tal:attributes="data-baselayers python:geomap.default_layers()['baselayers']">
         </div>
         
-        <script type="text/javascript" src="++resource++collective.geo.leaflet/cgeoleaflet_baselayers.js">
+        <script type="text/javascript" src="++resource++collective.geo.leaflet/cgeoleaflet_layers.js">
         </script>
 
 
@@ -75,8 +75,6 @@
              tal:attributes="data-geojson_url view/geojson_urls" 
              class="hiddenStructure">
         </div>
-        <script type="text/javascript" src="++resource++collective.geo.leaflet/cgeoleaflet_overlayers.js">
-        </script>
 
     </metal:map-geojson>
 
