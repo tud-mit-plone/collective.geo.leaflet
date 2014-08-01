@@ -15,3 +15,5 @@ src/*
 !src/collective
 var/
 .gitkeep
+include/
+lib/
