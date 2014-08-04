@@ -18,11 +18,10 @@ class GeoMap(object):
     def __init__(self, context, request):
         self.context = context
         self.request = request
-        if not self.has_map():
-            return None
         self.geo_feature_style = self.geo_feature_style()
         self.geo_settings = self.geo_settings()
 
+    @property
     def has_map(self):
         if not IGeoreferenceable.providedBy(self.context):
             return False
@@ -63,9 +62,10 @@ class GeoMap(object):
 
     @property
     def coordinates(self):
-        geo_obj = IGeoreferenced(self.context)
         lat = lon = None
-        if geo_obj.coordinates:
+        if self.has_map:
+            geo_obj = IGeoreferenced(self.context)
+        if getattr('geo_obj', 'coordinates', False):
             lon = geo_obj.coordinates[0]
             lat = geo_obj.coordinates[1]
         return {'latitude': lat, 'longitude': lon}

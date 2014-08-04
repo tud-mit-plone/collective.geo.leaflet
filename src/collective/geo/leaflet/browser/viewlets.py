@@ -26,7 +26,7 @@ class ContentViewlet(common.ViewletBase):
 
     @property
     def map_viewlet_position(self):
-        if self.geomap.has_map():
+        if self.geomap.has_map:
             return self.geomap.geo_feature_style.get('map_viewlet_position')
 
     def render(self):
