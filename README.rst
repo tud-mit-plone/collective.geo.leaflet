@@ -10,9 +10,7 @@ TODO
 
 [ ] Get "attribution" map from registry
 
-[ ] Get searcheable text from a geo attributes
-
-[ ] Testing
+[ ] Testing loading map with Robot
 
 [ ] Add uninstall profile
 
@@ -22,4 +20,46 @@ TODO
 
 Dependencies
 ============
--
+
+- collective.geo.behaviour
+- collective.geo.contentlocations
+- collective.geo.geographer
+- collective.geo.json
+- collective.geo.mapwidget
+- collective.geo.openlayers
+- collective.geo.settings
+- collective.js.leaflet
+- collective.z3cform.mapwidget
+- collective.z3cform.colorpicker
+
+How to add baseLayer
+====================
+
+What is a leaflet baseLayer :
+http://leafletjs.com/examples/layers-control.html
+
+
+In Plone, if you want to add a baseLayer, you have to add a subscriber on collective.geo.geographer.interfaces.IGeoreferenced (for exemple):
+
+    <subscriber
+        for="collective.geo.geographer.interfaces.IGeoreferenced"
+        provides=".interfaces.IMapLayer"
+        factory=".maplayers.GoogleStreetMapLayer
+        />
+
+After, create your factory in python:
+
+    class OpenStreetMap(MapLayer):
+        name = u"osm"
+        title = _(u"Open Street Map")
+        index = ViewPageTemplateFile('browser/layers/osm.pt')
+
+And add your javascript into a template file:
+
+    <script type="text/javascript">
+        var osmAttrib = '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors';
+        var osmUrl = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
+        var %(name)s = L.tileLayer(osmUrl, {
+             attribution: osmAttrib,
+        });
+    </script>
