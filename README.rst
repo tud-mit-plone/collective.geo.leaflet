@@ -1,3 +1,5 @@
+.. contents::
+
 ==========================================================================
 collective.geo.leaflet
 ==========================================================================
@@ -5,7 +7,7 @@ collective.geo.leaflet
 This package use the collective.geo.* suite with leaflet.
 
 
-TODO
+Todo
 ====
 
 [ ] Get "attribution" map from registry
@@ -63,3 +65,12 @@ And add your javascript into a template file::
              attribution: osmAttrib,
         });
     </script>
+
+
+Tests
+=====
+
+This package is tested using Travis CI. The current status is :
+
+.. image:: https://travis-ci.org/collective/collective.geo.leaflet.svg
+    :target: https://travis-ci.org/collective/collective.geo.leaflet
