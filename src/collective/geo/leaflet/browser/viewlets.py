@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from collective.geo.leaflet import geomap
 
-from plone import api
 from plone.app.layout.viewlets import common
 
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -48,3 +47,9 @@ class ContentViewlet(common.ViewletBase):
             popup += '<br />'
         popup += "</div>"
         return popup
+
+    def geojson(self):
+        return getMultiAdapter(
+            (self.context, self.request),
+            name="geo-json.json"
+        )

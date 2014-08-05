@@ -1,6 +1,3 @@
-# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
-# SOME DESCRIPTIVE TITLE.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -15,7 +12,7 @@ msgstr ""
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: collective.geo.leaflet\n"
+"Domain: DOMAIN\n"
 
 #: ../maplayers.py:62
 msgid "Google"
@@ -39,9 +36,9 @@ msgstr ""
 
 #: ../browser/templates/collectivegeoleaflet_macros.pt:111
 msgid "notFoundAddressMessage"
-msgstr ""
+msgstr "Address not found"
 
 #: ../browser/templates/collectivegeoleaflet_macros.pt:111
 msgid "searchLabel"
-msgstr ""
+msgstr "Search an address"
 

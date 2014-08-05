@@ -20,22 +20,11 @@ class GeoLeaflet(BrowserView):
         return self.render()
 
     def render(self):
-         return self.index()
+        return self.index()
 
     @property
     def portal_catalog(self):
         return getToolByName(self.context, 'portal_catalog')
-
-
-    def make_popup(self):
-        # XXX should be in a template
-        popup = "<div class='geo-popup'>"
-        geo_infos = utils.get_geo_infos(self.context)
-        for prop in geo_infos.get('display_properties', []):
-            popup += getattr(self.context, prop)()
-            popup += '<br />'
-        popup += "</div>"
-        return popup
 
     def geojson_urls(self):
         query_dict = {}
@@ -51,4 +40,7 @@ class GeoLeaflet(BrowserView):
         return json.dumps(urls)
 
     def geojson(self):
-        return getMultiAdapter((self.context, self.request), name="geo-json.json")
+        return getMultiAdapter(
+            (self.context, self.request),
+            name="geo-json.json"
+        )

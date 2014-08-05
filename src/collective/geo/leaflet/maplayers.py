@@ -43,6 +43,7 @@ class MapLayer(object):
         return "{}-leaflet-layer".format(self.name)
 
     def register_view(self):
+        """register a view to call js associated with layer """
         provideAdapter(
             factory=self.__class__,
             adapts=(None, None),

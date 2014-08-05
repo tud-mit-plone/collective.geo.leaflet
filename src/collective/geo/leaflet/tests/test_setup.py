@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 """Setup/installation tests for this package."""
 
-from collective.geo.leaflet.testing import IntegrationTestCase
+from collective.geo.leaflet.testing import INTEGRATION
 from plone import api
 
+import unittest2 as unittest
 
-class TestInstall(IntegrationTestCase):
+
+class TestInstall(unittest.TestCase):
     """Test installation of collective.geo.leaflet into Plone."""
+    layer = INTEGRATION
 
     def setUp(self):
         """Custom shared utility setup for tests."""

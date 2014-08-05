@@ -2,8 +2,8 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="collective.geo.mapwidget"
-      tal:omit-tag="">
+      i18n:domain="collective.geo.leaflet"
+      >
   <head>
   </head>
 
@@ -108,11 +108,18 @@
     </tal:comment>
 
     <metal:geocoding define-macro="map-search">
+        <div id="i18ndiv" i18n:attributes="
+            data-searchlabel searchLabel;
+            data-notfoundmessage notFoundAddressMessage"></div>
         <script type="text/javascript">
+             var searchLabel = $('#i18ndiv').data('searchlabel');
+             var notFoundMessage = $('#i18ndiv').data('notfoundmessage');
              new L.Control.GeoSearch({
                 provider: new L.GeoSearch.Provider.OpenStreetMap(),
                 position: 'topcenter',
-                showMarker: true
+                showMarker: false,
+                searchLabel: searchLabel,
+                notFoundMessage: notFoundMessage
             }).addTo(map);
         </script>
     </metal:geocoding>

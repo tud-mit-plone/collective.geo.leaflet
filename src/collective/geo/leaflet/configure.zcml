@@ -11,6 +11,13 @@
     <five:registerPackage package="." initialize=".initialize" />
     
     <include package="plone.api" />
+    <include package="collective.geo.settings" />
+    <include package="collective.geo.geographer" />
+    <include package="collective.geo.mapwidget" />
+    <include package="collective.geo.behaviour" />
+    <include package="collective.geo.contentlocations" />
+    <include package="collective.geo.json" />
+    <include package="collective.js.leaflet" />
 
     <include package=".browser" />
 
@@ -30,10 +37,10 @@
     </genericsetup:importStep>
 
     <utility factory="collective.geo.leaflet.profile.HiddenProfiles"
-           name="collective.geo.hiddenprofiles" />
+        name="collective.geo.hiddenprofiles" />
 
     <utility factory="collective.geo.leaflet.profile.HiddenProducts"
-           name="collective.geo.hiddenproducts" />
+        name="collective.geo.hiddenproducts" />
 
     <!-- Map layers -->
 
@@ -66,6 +73,5 @@
         provides=".interfaces.IMapLayer"
         factory=".maplayers.GoogleTerrainMapLayer"
         />
-
 
 </configure>

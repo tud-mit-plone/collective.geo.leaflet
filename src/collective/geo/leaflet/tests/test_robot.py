@@ -1,9 +1,10 @@
+# -*- coding: utf-8 -*-
 import os
 import unittest
 import robotsuite
 from plone.testing import layered
 
-from ..testing import ACCEPTANCE
+from ..testing import ROBOT
 
 
 def test_suite():
@@ -18,7 +19,7 @@ def test_suite():
         suite.addTests([
             layered(
                 robotsuite.RobotTestSuite(test),
-                layer=ACCEPTANCE
+                layer=ROBOT
             ),
         ])
     return suite
