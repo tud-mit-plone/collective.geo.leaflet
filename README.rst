@@ -39,7 +39,7 @@ What is a leaflet baseLayer :
 http://leafletjs.com/examples/layers-control.html
 
 
-In Plone, if you want to add a baseLayer, you have to add a subscriber on collective.geo.geographer.interfaces.IGeoreferenced (for exemple):
+In Plone, if you want to add a baseLayer, you have to add a subscriber on collective.geo.geographer.interfaces.IGeoreferenced (for exemple)::
 
     <subscriber
         for="collective.geo.geographer.interfaces.IGeoreferenced"
@@ -47,14 +47,14 @@ In Plone, if you want to add a baseLayer, you have to add a subscriber on collec
         factory=".maplayers.GoogleStreetMapLayer
         />
 
-After, create your factory in python:
+After, create your factory in python::
 
     class OpenStreetMap(MapLayer):
         name = u"osm"
         title = _(u"Open Street Map")
         index = ViewPageTemplateFile('browser/layers/osm.pt')
 
-And add your javascript into a template file:
+And add your javascript into a template file::
 
     <script type="text/javascript">
         var osmAttrib = '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors';
