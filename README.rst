@@ -20,6 +20,10 @@ Todo
 
 [ ] Simple element view should use geojson
 
+[ ] Use leaflet for control panel map
+
+[ ] Use leaflet for configure map
+
 Dependencies
 ============
 
