@@ -65,9 +65,9 @@ class GeoMap(object):
         lat = lon = None
         if self.has_map:
             geo_obj = IGeoreferenced(self.context)
-        if getattr(geo_obj, 'coordinates', False):
-            lon = geo_obj.coordinates[0]
-            lat = geo_obj.coordinates[1]
+            if getattr(geo_obj, 'coordinates', False):
+                lon = geo_obj.coordinates[0]
+                lat = geo_obj.coordinates[1]
         return {'latitude': lat, 'longitude': lon}
 
     def default_layers(self):
