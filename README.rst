@@ -10,7 +10,7 @@ This package use the collective.geo.* suite with leaflet.
 Todo
 ====
 
-[ ] Get "attribution" map from registry
+[ ] Get "attribution" map from registry or 
 
 [ ] Testing loading map with Robot
 
@@ -19,6 +19,10 @@ Todo
 [ ] Translations
 
 [ ] Simple element view should use geojson
+
+[ ] Use leaflet for control panel map
+
+[ ] Use leaflet for configure map
 
 Dependencies
 ============
@@ -41,22 +45,26 @@ What is a leaflet baseLayer :
 http://leafletjs.com/examples/layers-control.html
 
 
-In Plone, if you want to add a baseLayer, you have to add a subscriber on collective.geo.geographer.interfaces.IGeoreferenced (for exemple)::
+In Plone, if you want to add a baseLayer, you have to add a subscriber on collective.geo.geographer.interfaces.IGeoreferenced (for exemple, in `configure.zcml`)::
 
     <subscriber
         for="collective.geo.geographer.interfaces.IGeoreferenced"
-        provides=".interfaces.IMapLayer"
-        factory=".maplayers.GoogleStreetMapLayer
+        provides="collective.geo.leaflet.interfaces.IMapLayer"
+        factory=".maplayers.OpenStreetMap
         />
 
-After, create your factory in python::
+After, create your factory in python (`maplayers.py`)::
 
+    from collective.geo.leaflet.maplayers import MapLayer
+    from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+    
+    
     class OpenStreetMap(MapLayer):
         name = u"osm"
         title = _(u"Open Street Map")
         index = ViewPageTemplateFile('browser/layers/osm.pt')
 
-And add your javascript into a template file::
+And add your javascript into a template file `osm.pt`::
 
     <script type="text/javascript">
         var osmAttrib = '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors';
