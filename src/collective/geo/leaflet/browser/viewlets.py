@@ -43,8 +43,13 @@ class ContentViewlet(common.ViewletBase):
         popup = "<div class='geo-popup'>"
         geo_infos = self.geomap.geo_feature_style
         for prop in geo_infos.get('display_properties', []):
-            popup += getattr(self.context, prop)()
-            popup += '<br />'
+            if hasattr(self.context, prop):
+                popup += getattr(self.context, prop)()
+                popup += '<br />'
+            else:
+                logger.info("Type {} has no attribute : {}".format(
+                    self.context.portal_type,
+                    prop))
         popup += "</div>"
         return popup
 
