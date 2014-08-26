@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.1b3 (unreleased)
+0.1b3 (2014-08-26)
 ------------------
 
 - Use a "local" version of leaflet-google.js downloaded from https://gist.github.com/crofty/2197042
