@@ -40,5 +40,5 @@ msgstr "Adresse non trouvée"
 
 #: ../browser/templates/collectivegeoleaflet_macros.pt:111
 msgid "searchLabel"
-msgstr "Recheche d'une adresse"
+msgstr "Recherche d'une adresse"
 
