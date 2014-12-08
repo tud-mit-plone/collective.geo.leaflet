@@ -5,7 +5,8 @@ Changelog
 0.1b4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix one french translation ('recheche' instead of 'recherche').
+  [bsuttor]
 
 
 0.1b3 (2014-08-26)
