@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.1b5 (unreleased)
+0.1b5 (2015-01-06)
 ------------------
 
 - Fix name of upgrade step profile.
