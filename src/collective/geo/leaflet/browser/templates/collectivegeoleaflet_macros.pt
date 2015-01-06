@@ -13,15 +13,15 @@
       A macro to include all necessary javascript files
     </tal:comment>
 
-   
+
    <div tal:condition="python:getattr('view', 'geomap', False)">
-    <metal:map-div define-macro="map-div" 
+    <metal:map-div define-macro="map-div"
                   tal:define="geomap view/geomap;
                               map_style geomap/geo_feature_style;
                               map_settings geomap/geo_settings;
                               map_center python:geomap.map_center();
                               map_inline_style python:geomap.inline_style()">
-        <div id="map" 
+        <div id="map"
              tal:attributes="data-latitude map_center/latitude|nothing;
                 data-longitude map_center/longitude|nothing;
                 data-zoom map_settings/zoom|nothing;
@@ -50,31 +50,31 @@
 
         <tal:block tal:content="structure python:geomap.default_layers()['layers']">
         </tal:block>
-        
-        <div class="baselayers" 
+
+        <div class="baselayers"
             tal:attributes="data-baselayers python:geomap.default_layers()['baselayers']">
         </div>
-        
+
         <script type="text/javascript" src="++resource++collective.geo.leaflet/cgeoleaflet_layers.js">
         </script>
 
 
         <script type="text/javascript">
         </script>
-        
+
         <script type="text/javascript">
         //add mini map, should be on a separate js file
             //map.locate({setView: true});
             var osm2 = new L.TileLayer(osmUrl, {minZoom: 0, maxZoom: 13, attribution: osmAttrib});
             var miniMap = new L.Control.MiniMap(osm2).addTo(map);
         </script>
-        
+
 
     </metal:map-init-leaflet>
 
     <metal:map-geojson define-macro="map-geojson">
-        <div id="geojson_url" 
-             tal:attributes="data-geojson_url view/geojson_urls" 
+        <div id="geojson_url"
+             tal:attributes="data-geojson_url view/geojson_urls"
              class="hiddenStructure">
         </div>
 
