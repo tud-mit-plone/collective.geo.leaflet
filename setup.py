@@ -19,7 +19,7 @@ long_description = (
 
 setup(
     name='collective.geo.leaflet',
-    version='0.1b5',
+    version='0.1b6.dev0',
     description="Add geo views for dexterity content with leaflet js library",
     long_description=long_description,
     # Get more from http://pypi.python.org/pypi?%3Aaction=list_classifiers
