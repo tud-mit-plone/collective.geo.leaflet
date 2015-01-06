@@ -5,7 +5,8 @@ Changelog
 0.1b5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix name of upgrade step profile.
+  [bsuttor]
 
 
 0.1b4 (2015-01-06)

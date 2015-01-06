@@ -20,12 +20,13 @@
   </genericsetup:importStep>
 
   <genericsetup:upgradeStep
-    source="1"
-    destination="2"
     title="Add markercluster"
     description="Add markercluster plugin and use it"
-    profile="collective.directory:default"
+    source="1"
+    destination="2"
+    sortkey="1"
     handler=".upgradehandlers.upgrade_1_to_2"
+    profile="collective.geo.leaflet:default"
     />
 
 </configure>
