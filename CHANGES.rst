@@ -8,6 +8,9 @@ Changelog
 - Fix one french translation ('recheche' instead of 'recherche').
   [bsuttor]
 
+- Use Markercluster plugins (https://github.com/Leaflet/Leaflet.markercluster) with collective.js.leaflet.
+  [bsuttor]
+
 
 0.1b3 (2014-08-26)
 ------------------
