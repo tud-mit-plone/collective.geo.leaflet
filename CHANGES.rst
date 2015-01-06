@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.1b4 (unreleased)
+0.1b4 (2015-01-06)
 ------------------
 
 - Fix one french translation ('recheche' instead of 'recherche').
