@@ -7,6 +7,7 @@ for (var layer in layers) {
 map.addLayer(eval(layers[0].name));
 controllayers = L.control.layers(baselayers).addTo(map)
 if ($('#geojson_url').length > 0) {
+    var markers = new L.MarkerClusterGroup();
     urls = $('#geojson_url').data('geojson_url');
     var geojsons = [];
     for (u in urls) {
@@ -32,7 +33,9 @@ if ($('#geojson_url').length > 0) {
                     var customIcon = new CustomIcon();
                     return L.marker(latlng, {icon: customIcon});
                 }
-            }).addTo(map);
+            });
+            markers.addLayer(geojson);
+            map.addLayer(markers);
             controllayers.addOverlay(geojson, layername);
             //overlays[layername] = geojson;
         });

@@ -20,21 +20,8 @@
     <include package="collective.js.leaflet" />
 
     <include package=".browser" />
+    <include file="profiles.zcml" />
 
-    <genericsetup:registerProfile
-        name="default"
-        title="Plone Maps (collective.geo) with Leaflet"
-        directory="profiles/default"
-        description="Installs the collective.geo.leaflet add-on."
-        provides="Products.GenericSetup.interfaces.EXTENSION"
-        />
-
-    <genericsetup:importStep
-        name="collective.geo.leaflet-postInstall"
-        title="collective.geo.leaflet post_install import step"
-        description="Post install import step from collective.geo.leaflet"
-        handler=".setuphandlers.post_install">
-    </genericsetup:importStep>
 
     <utility factory="collective.geo.leaflet.profile.HiddenProfiles"
         name="collective.geo.hiddenprofiles" />
