@@ -10,7 +10,6 @@
                 <element>leaflet.minimap</element>
                 <element>leaflet.geosearch</element>
                 <element>leaflet.geosearch.openstreetmap</element>
-                <element>leaflet.markercluster</element>
             </element>
         </value>
     </record>
