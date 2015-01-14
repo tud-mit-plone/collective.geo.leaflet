@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.1b6 (unreleased)
+0.1b6 (2015-01-14)
 ------------------
 
 - Nothing changed yet.
