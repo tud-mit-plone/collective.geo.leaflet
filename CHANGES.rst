@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.1b7 (unreleased)
+0.1b7 (2015-01-14)
 ------------------
 
 - Marker are not more hidden with google baselayer.
