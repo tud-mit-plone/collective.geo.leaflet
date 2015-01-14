@@ -5,7 +5,8 @@ Changelog
 0.1b7 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Marker are not more hidden with google baselayer.
+  [bsuttor]
 
 
 0.1b6 (2015-01-14)
