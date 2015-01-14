@@ -11,7 +11,8 @@ Changelog
 0.1b6 (2015-01-14)
 ------------------
 
-- Nothing changed yet.
+- Remove Markercluster plugin because it do not run with control.layers.
+  [bsuttor]
 
 
 0.1b5 (2015-01-06)
