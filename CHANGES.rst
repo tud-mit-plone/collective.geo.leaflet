@@ -5,7 +5,8 @@ Changelog
 0.1b8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Remove old Topic support
+  [bsuttor]
 
 
 0.1b7 (2015-01-14)
