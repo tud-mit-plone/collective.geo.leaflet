@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.1b8 (unreleased)
+0.1b8 (2015-11-27)
 ------------------
 
 - Remove old Topic support
