@@ -5,7 +5,8 @@ Changelog
 0.1b9 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add polygon and polyline support.
+  [bsuttor]
 
 
 0.1b8 (2015-11-27)
