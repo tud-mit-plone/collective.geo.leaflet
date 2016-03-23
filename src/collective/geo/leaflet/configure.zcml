@@ -10,7 +10,6 @@
 
     <five:registerPackage package="." initialize=".initialize" />
 
-    <include package="plone.api" />
     <include package="collective.geo.settings" />
     <include package="collective.geo.geographer" />
     <include package="collective.geo.mapwidget" />
