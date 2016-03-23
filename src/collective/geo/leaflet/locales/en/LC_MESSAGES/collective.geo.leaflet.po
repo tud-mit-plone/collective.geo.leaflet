@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-08-05 12:49+0000\n"
+"POT-Creation-Date: 2016-03-23 14:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,31 +14,31 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ../maplayers.py:62
+#: ../maplayers.py:63
 msgid "Google"
 msgstr ""
 
-#: ../maplayers.py:76
+#: ../maplayers.py:77
 msgid "Hybrid (Google)"
 msgstr ""
 
-#: ../maplayers.py:56
+#: ../maplayers.py:57
 msgid "Open Street Map"
 msgstr ""
 
-#: ../maplayers.py:69
+#: ../maplayers.py:70
 msgid "Satellite (Google)"
 msgstr ""
 
-#: ../maplayers.py:83
+#: ../maplayers.py:84
 msgid "Terrain (Google)"
 msgstr ""
 
-#: ../browser/templates/collectivegeoleaflet_macros.pt:111
+#: ../browser/templates/collectivegeoleaflet_macros.pt:141
 msgid "notFoundAddressMessage"
 msgstr "Address not found"
 
-#: ../browser/templates/collectivegeoleaflet_macros.pt:111
+#: ../browser/templates/collectivegeoleaflet_macros.pt:141
 msgid "searchLabel"
 msgstr "Search an address"
 
