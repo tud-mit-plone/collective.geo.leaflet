@@ -19,13 +19,15 @@
                   tal:define="geomap view/geomap;
                               map_style geomap/geo_feature_style;
                               map_settings geomap/geo_settings;
+                              map_coordinates geomap/json_coordinates;
                               map_center python:geomap.map_center();
                               map_inline_style python:geomap.inline_style()">
         <div id="map"
-             tal:attributes="data-latitude map_center/latitude|nothing;
-                data-longitude map_center/longitude|nothing;
+             tal:attributes="data-mapcenter_latitude map_center/latitude|nothing;
+                data-mapcenter_longitude map_center/longitude|nothing;
                 data-zoom map_settings/zoom|nothing;
                 data-marker_image map_style/marker_image;
+                data-coordinates map_coordinates;
                 style map_inline_style|nothing">
         </div>
 
@@ -83,21 +85,49 @@
     <metal:map-add-marker define-macro="map-add-marker">
         <script type="text/javascript">
         //add marker
-            var markercoord = [latitude, longitude];
+            if (coord_type == 'Point') {
+                var markercoord = [coord_value[1], coord_value[0]];
 
-            //Extend the Default marker class
-            var CustomIcon = L.Icon.Default.extend({
-                options: {
-                    iconUrl: marker_url
+                //Extend the Default marker class
+                var CustomIcon = L.Icon.Default.extend({
+                    options: {
+                        iconUrl: marker_url
+                    }
+                });
+
+                var customIcon = new CustomIcon();
+
+                var marker = L.marker(markercoord, {icon: customIcon}).addTo(map);
+
+                var popup_content = $('div.geo-popup-content').html();
+                marker.bindPopup(popup_content);
+            }
+            if (coord_type == 'Polygon') {
+                polygons = [];
+                for (i in coord_value) {
+                    coord_polygon = coord_value[i];
+                    polygonPoints = [];
+                    for (j in coord_polygon){
+                        coord = coord_polygon[j];
+                        polygonPoints.push(new L.LatLng(coord[1], coord[0]));
+                    }
+                    polygons.push(polygonPoints);
                 }
-            });
+                var poly = L.multiPolygon(polygons).addTo(map);
+                var popup_content = $('div.geo-popup-content').html();
+                poly.bindPopup(popup_content);
+            }
+            if (coord_type == 'LineString') {
+                polylines = [];
+                for (i in coord_value) {
+                    coord_polyline = coord_value[i];
+                    polylines.push(new L.LatLng(coord_polyline[1], coord_polyline[0]));
+                }
+                var poly = L.polyline(polylines).addTo(map);
+                var popup_content = $('div.geo-popup-content').html();
+                poly.bindPopup(popup_content);
+            }
 
-            var customIcon = new CustomIcon();
-
-            var marker = L.marker(markercoord, {icon: customIcon}).addTo(map);
-
-            var popup_content = $('div.geo-popup-content').html();
-            marker.bindPopup(popup_content);
         </script>
 
     </metal:map-add-marker>

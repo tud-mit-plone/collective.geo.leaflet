@@ -1,15 +1,14 @@
 # -*- coding: utf-8 -*-
-from zope.schema import getFields
-
-from collective.geo.settings.interfaces import IGeoFeatureStyle
-from collective.geo.settings.interfaces import IGeoSettings
 from collective.geo.geographer.interfaces import IGeoreferenceable
 from collective.geo.geographer.interfaces import IGeoreferenced
 from collective.geo.leaflet.interfaces import IMapLayer
 from collective.geo.leaflet.utils import get_marker_image
-
 from collective.geo.settings import utils
+from collective.geo.settings.interfaces import IGeoFeatureStyle
+from collective.geo.settings.interfaces import IGeoSettings
 from zope.component import getGlobalSiteManager
+from zope.schema import getFields
+
 import json
 
 
@@ -52,23 +51,25 @@ class GeoMap(object):
         return settings
 
     def map_center(self):
-        lat = self.coordinates.get('latitude')
-        if not lat:
-            lat = self.geo_settings.get('latitude')
-        lon = self.coordinates.get('longitude')
-        if not lon:
-            lon = self.geo_settings.get('longitude')
-        return {'latitude': str(lat), 'longitude': str(lon)}
+        lat = self.geo_settings.get('latitude')
+        lon = self.geo_settings.get('longitude')
+
+        if self.coordinates[0] == 'Point':
+            lon = self.coordinates[1][0]
+            lat = self.coordinates[1][1]
+
+        return {'longitude': str(lon), 'latitude': str(lat)}
 
     @property
     def coordinates(self):
-        lat = lon = None
         if self.has_map:
             geo_obj = IGeoreferenced(self.context)
             if getattr(geo_obj, 'coordinates', False):
-                lon = geo_obj.coordinates[0]
-                lat = geo_obj.coordinates[1]
-        return {'latitude': lat, 'longitude': lon}
+                return geo_obj.type, geo_obj.coordinates
+
+    @property
+    def json_coordinates(self):
+        return json.dumps(self.coordinates)
 
     def default_layers(self):
         registred_layers = {}
