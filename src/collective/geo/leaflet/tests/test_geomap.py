@@ -80,4 +80,5 @@ class TestGeomap(unittest.TestCase):
 
     def test_coordinates(self):
         geomap = GeoMap(self.doc, self.doc.REQUEST)
-        self.assertEqual(geomap.coordinates['latitude'], 50.633)
+        self.assertEqual(geomap.coordinates[0], 'Point')
+        self.assertEqual(geomap.coordinates[1], (5.583, 50.633))
