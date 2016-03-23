@@ -10,13 +10,13 @@ This package use the collective.geo.* suite with leaflet.
 Todo
 ====
 
-[ ] Get "attribution" map from registry or 
+[ ] Get "attribution" map from registry
 
 [ ] Testing loading map with Robot
 
 [ ] Add uninstall profile
 
-[ ] Translations
+[x] Translations
 
 [ ] Simple element view should use geojson
 
@@ -57,8 +57,8 @@ After, create your factory in python (`maplayers.py`)::
 
     from collective.geo.leaflet.maplayers import MapLayer
     from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-    
-    
+
+
     class OpenStreetMap(MapLayer):
         name = u"osm"
         title = _(u"Open Street Map")
