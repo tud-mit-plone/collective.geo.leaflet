@@ -2,8 +2,8 @@ Changelog
 =========
 
 
-0.1b9 (unreleased)
-------------------
+0.2 (2016-03-23)
+----------------
 
 - Add polygon and polyline support.
   [bsuttor]
