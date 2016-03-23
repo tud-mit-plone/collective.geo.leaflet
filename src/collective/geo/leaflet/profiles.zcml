@@ -12,6 +12,14 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="Uninstall Plone Maps (collective.geo) with Leaflet"
+      directory="profiles/uninstall"
+      description="Installs the collective.geo.leaflet add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
   <genericsetup:importStep
       name="collective.geo.leaflet-postInstall"
       title="collective.geo.leaflet post_install import step"

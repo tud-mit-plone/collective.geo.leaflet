@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-from zope.interface import implements
-
 from Products.CMFPlone.interfaces import INonInstallable
 from Products.CMFQuickInstallerTool.interfaces import INonInstallable as INonQ
+
+from zope.interface import implements
 
 DEPENDENCIES = [
     u'collective.geo.geographer',
@@ -23,7 +23,8 @@ class HiddenProfiles(object):
 
     def getNonInstallableProfiles(self):
         _dependencies = ['%s:default' % item for item in DEPENDENCIES]
-        return _dependencies + ['collective.js.leaflet:uninstall']
+        return _dependencies + ['collective.js.leaflet:uninstall',
+                                'collective.geo.leaflet:uninstall']
 
 
 class HiddenProducts(object):
