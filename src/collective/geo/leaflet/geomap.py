@@ -53,8 +53,7 @@ class GeoMap(object):
     def map_center(self):
         lat = self.geo_settings.get('latitude')
         lon = self.geo_settings.get('longitude')
-
-        if self.coordinates[0] == 'Point':
+        if self.coordinates and self.coordinates[0] == 'Point':
             lon = self.coordinates[1][0]
             lat = self.coordinates[1][1]
 
@@ -66,6 +65,9 @@ class GeoMap(object):
             geo_obj = IGeoreferenced(self.context)
             if getattr(geo_obj, 'coordinates', False):
                 return geo_obj.type, geo_obj.coordinates
+            else:
+                return None, None
+        return None, None
 
     @property
     def json_coordinates(self):
