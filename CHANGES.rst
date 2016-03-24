@@ -5,7 +5,8 @@ Changelog
 0.2.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix bug, get coordiantes.
+  [bsuttor]
 
 
 0.2 (2016-03-23)
