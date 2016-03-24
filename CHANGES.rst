@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.2.1 (unreleased)
+0.2.1 (2016-03-24)
 ------------------
 
 - Fix bug, get coordiantes.
