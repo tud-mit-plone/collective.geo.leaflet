@@ -5,7 +5,8 @@ Changelog
 0.2.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Do not get js from relatif url anymore.
+  [bsuttor]
 
 
 0.2.1 (2016-03-24)
