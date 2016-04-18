@@ -44,10 +44,10 @@
         tal:define="geomap view/geomap;">
 
         <script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
-        <script src="++resource++collective.geo.leaflet/leaflet-google.js"></script>
+        <script tal:attributes="src string:${context/portal_url}/++resource++collective.geo.leaflet/leaflet-google.js"></script>
 
 
-        <script type="text/javascript" src="++resource++collective.geo.leaflet/cgeoleaflet.js">
+        <script type="text/javascript" tal:attributes="src string:${context/portal_url}/++resource++collective.geo.leaflet/cgeoleaflet.js">
         </script>
 
         <tal:block tal:content="structure python:geomap.default_layers()['layers']">
@@ -57,7 +57,7 @@
             tal:attributes="data-baselayers python:geomap.default_layers()['baselayers']">
         </div>
 
-        <script type="text/javascript" src="++resource++collective.geo.leaflet/cgeoleaflet_layers.js">
+        <script type="text/javascript" tal:attributes="src string:${context/portal_url}/++resource++collective.geo.leaflet/cgeoleaflet_layers.js">
         </script>
 
 
