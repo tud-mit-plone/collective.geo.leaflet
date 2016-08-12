@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.2.2 (unreleased)
+0.2.2 (2016-08-12)
 ------------------
 
 - Use google api key from control panel.
