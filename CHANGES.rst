@@ -5,6 +5,9 @@ Changelog
 0.2.2 (unreleased)
 ------------------
 
+- Use google api key from control panel.
+  [bsuttor]
+
 - Do not get js from relatif url anymore.
   [bsuttor]
 

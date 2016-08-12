@@ -99,6 +99,10 @@ class GeoMap(object):
             "baselayers": json.dumps(baselayers)
         }
 
+    def has_googlemap(self):
+        default_layers = self.default_layers()
+        return 'google_' in default_layers['baselayers']
+
     def inline_style(self):
         inline_style = {
             'height': '600px',
