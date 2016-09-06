@@ -40,5 +40,5 @@ msgstr ""
 
 #: ../browser/templates/collectivegeoleaflet_macros.pt:141
 msgid "searchLabel"
-msgstr ""
+msgstr "Zoek een adres"
 
