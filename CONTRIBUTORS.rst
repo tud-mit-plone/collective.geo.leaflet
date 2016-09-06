@@ -1,1 +1,1 @@
-- Benoît Suttor, benoit.suttor@imio.be
+- Benoît Suttor, bsuttor@imio.be

@@ -14,7 +14,7 @@ Todo
 
 [ ] Testing loading map with Robot
 
-[ ] Add uninstall profile
+[x] Add uninstall profile
 
 [x] Translations
 
