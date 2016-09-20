@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
+from collective.geo.leaflet.interfaces import IGeoMap
+from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from Products.CMFCore.utils import getToolByName
-
-from collective.geo.leaflet import geomap
 from zope.component import getMultiAdapter
+
 import json
 
 
@@ -14,7 +14,7 @@ class GeoLeaflet(BrowserView):
 
     def __init__(self, context, request):
         super(GeoLeaflet, self).__init__(context, request)
-        self.geomap = geomap.GeoMap(context, request)
+        self.geomap = IGeoMap(context)
 
     def __call__(self):
         return self.render()
@@ -28,7 +28,8 @@ class GeoLeaflet(BrowserView):
 
     def geojson_urls(self):
         query_dict = {}
-        query_dict['path'] = {'query': '/'.join(self.context.getPhysicalPath()), 'depth': 1 }
+        query_dict['path'] = {
+            'query': '/'.join(self.context.getPhysicalPath()), 'depth': 1}
         query_dict['portal_type'] = 'Collection'
         brains = self.portal_catalog(query_dict)
         if len(brains) > 1:

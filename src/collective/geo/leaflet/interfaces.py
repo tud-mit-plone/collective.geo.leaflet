@@ -20,3 +20,7 @@ class IMapLayer(Interface):
 
     def jsfactory():
         pass
+
+
+class IGeoMap(Interface):
+    """Interface use to adapt geomap."""

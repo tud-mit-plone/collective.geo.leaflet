@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-from collective.geo.leaflet import geomap
-
+from collective.geo.leaflet.interfaces import IGeoMap
 from plone.app.layout.viewlets import common
 
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -16,7 +15,7 @@ class ContentViewlet(common.ViewletBase):
 
     def __init__(self, context, request, view, manager=None):
         super(ContentViewlet, self).__init__(context, request, view, manager)
-        self.geomap = geomap.GeoMap(context, request)
+        self.geomap = IGeoMap(context)
 
     @property
     def coordinates(self):

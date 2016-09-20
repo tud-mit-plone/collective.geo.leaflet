@@ -65,4 +65,10 @@
         name='collective_geo_styles'
         />
 
+    <adapter
+        for="*"
+        provides="collective.geo.leaflet.interfaces.IGeoMap"
+        factory='.geomap.GeoMap'
+        />
+
 </configure>

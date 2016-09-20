@@ -2,21 +2,24 @@
 from collective.geo.geographer.interfaces import IGeoreferenceable
 from collective.geo.geographer.interfaces import IGeoreferenced
 from collective.geo.leaflet.interfaces import IMapLayer
+from collective.geo.leaflet.interfaces import IGeoMap
 from collective.geo.leaflet.utils import get_marker_image
 from collective.geo.settings import utils
 from collective.geo.settings.interfaces import IGeoFeatureStyle
 from collective.geo.settings.interfaces import IGeoSettings
 from zope.component import getGlobalSiteManager
 from zope.schema import getFields
+from zope.interface import implementer
 
 import json
 
 
+@implementer(IGeoMap)
 class GeoMap(object):
 
-    def __init__(self, context, request):
+    def __init__(self, context):
         self.context = context
-        self.request = request
+        self.request = context.REQUEST
         self.geo_feature_style = self.geo_feature_style()
         self.geo_settings = self.geo_settings()
 

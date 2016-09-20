@@ -5,7 +5,8 @@ Changelog
 0.2.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add adapter for adapting geomap settings (as map_center, ...)
+  [bsuttor]
 
 
 0.2.2 (2016-08-12)
