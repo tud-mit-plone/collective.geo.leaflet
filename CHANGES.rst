@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.2.3 (unreleased)
+0.2.3 (2016-09-20)
 ------------------
 
 - Add adapter for adapting geomap settings (as map_center, ...)
