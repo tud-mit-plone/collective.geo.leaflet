@@ -5,7 +5,8 @@ Changelog
 0.2.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Get geojson content into a #geojson object into a data-geojson attribute.
+  [bsuttor]
 
 
 0.2.3 (2016-09-20)
