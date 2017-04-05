@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.2.4 (unreleased)
+0.2.4 (2017-04-05)
 ------------------
 
 - Get geojson content into a #geojson object into a data-geojson attribute.
