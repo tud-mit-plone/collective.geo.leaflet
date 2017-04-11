@@ -5,7 +5,8 @@ Changelog
 0.2.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add image and address into geojson popup if values are in geojson properties.
+  [bsuttor]
 
 
 0.2.4 (2017-04-05)

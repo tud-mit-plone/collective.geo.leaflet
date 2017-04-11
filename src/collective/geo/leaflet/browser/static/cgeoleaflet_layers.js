@@ -50,11 +50,24 @@ if ($('#geojson').length > 0) {
   layername = $('#geojson').data('name');
   geojson_data = L.geoJson(json, {
     onEachFeature: function(feature, layer) {
+      img = '';
+      if (feature.properties.image) {
+        img = '<img src="' + feature.properties.image + '" />';
+      }
+      description = '';
+      if (feature.properties.description) {
+        description = '<p>' + feature.properties.description + '</p>';
+      }
+      address = '';
+      if (feature.properties.address) {
+        address = '<p>' + feature.properties.address + '</p>'
+      }
       layer.bindPopup(
+        img +
         '<a href="' + feature.properties.url + '" target="_blank">' +
         '<h3>' + feature.properties.title + '</h3>' +
         '</a>' +
-        '<p>' + feature.properties.description + '</p>');
+        description + address);
     },
     pointToLayer: function(feature, latlng) {
       //Extend the Default marker class
