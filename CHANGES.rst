@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.2.5 (unreleased)
+0.2.5 (2017-04-11)
 ------------------
 
 - Add image and address into geojson popup if values are in geojson properties.
