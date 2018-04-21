@@ -5,7 +5,8 @@ Changelog
 0.2.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix typo in method `absolute_url`
+  [mpeeters]
 
 
 0.2.5 (2017-04-11)
