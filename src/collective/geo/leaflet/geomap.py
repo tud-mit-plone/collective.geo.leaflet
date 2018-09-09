@@ -109,7 +109,7 @@ class GeoMap(object):
     def inline_style(self):
         inline_style = {
             'height': '600px',
-            'width': '1000px'
+            'width': '100%'
         }
         height = self.geo_feature_style.get('map_height')
         width = self.geo_feature_style.get('map_width')

@@ -2,8 +2,11 @@ Changelog
 =========
 
 
-0.2.6 (unreleased)
+1.0.0 (unreleased)
 ------------------
+
+- Fix the default width for maps
+  [mpeeters]
 
 - Fix typo in method `absolute_url`
   [mpeeters]
