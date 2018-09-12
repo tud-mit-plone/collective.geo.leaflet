@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-03-23 14:10+0000\n"
+"POT-Creation-Date: 2018-09-12 18:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,8 +22,16 @@ msgstr ""
 msgid "Hybrid (Google)"
 msgstr ""
 
+#: ../profiles.zcml:13
+msgid "Installs the collective.geo.leaflet add-on."
+msgstr ""
+
 #: ../maplayers.py:57
 msgid "Open Street Map"
+msgstr ""
+
+#: ../profiles.zcml:13
+msgid "Plone Maps (collective.geo) with Leaflet"
 msgstr ""
 
 #: ../maplayers.py:70
@@ -34,11 +42,14 @@ msgstr ""
 msgid "Terrain (Google)"
 msgstr ""
 
-#: ../browser/templates/collectivegeoleaflet_macros.pt:141
+#: ../profiles.zcml:21
+msgid "Uninstall Plone Maps (collective.geo) with Leaflet"
+msgstr ""
+
+#: ../browser/templates/collectivegeoleaflet_macros.pt:143
 msgid "notFoundAddressMessage"
 msgstr "Adresse non trouvée"
 
-#: ../browser/templates/collectivegeoleaflet_macros.pt:141
+#: ../browser/templates/collectivegeoleaflet_macros.pt:143
 msgid "searchLabel"
 msgstr "Recherche d'une adresse"
-
