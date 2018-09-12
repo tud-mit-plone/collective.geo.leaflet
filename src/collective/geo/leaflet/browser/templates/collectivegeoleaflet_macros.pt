@@ -140,7 +140,7 @@
       </tal:comment>
 
       <metal:geocoding define-macro="map-search">
-        <div
+        <div i18n:domain="collective.geo.leaflet"
           id="i18ndiv"
           i18n:attributes="
             data-searchlabel searchLabel;
