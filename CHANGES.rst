@@ -5,6 +5,9 @@ Changelog
 1.0.0 (unreleased)
 ------------------
 
+- Fix uninstall warning#1
+  [bsuttor]
+
 - Fix the default width for maps
   [mpeeters]
 
@@ -120,4 +123,3 @@ Changelog
 
 - Initial release.
   [bsuttor]
-
