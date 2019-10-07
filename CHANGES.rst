@@ -5,7 +5,8 @@ Changelog
 1.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix default imagePath.
+  [bsuttor]
 
 
 1.0.0 (2019-10-07)
