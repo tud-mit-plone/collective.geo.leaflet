@@ -7,6 +7,9 @@ for (var layer in layers) {
 }
 map.addLayer(eval(layers[0].name));
 controllayers = L.control.layers(baselayers).addTo(map);
+if (!L.Icon.Default.imagePath) {
+    L.Icon.Default.imagePath = portal_url + "/+resource+collective.js.leaflet/images";
+}
 if ($('#geojson_url').length > 0) {
   //var markers = new L.MarkerClusterGroup();
   urls = $('#geojson_url').data('geojson_url');

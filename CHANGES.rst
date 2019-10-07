@@ -5,6 +5,9 @@ Changelog
 1.0.0 (unreleased)
 ------------------
 
+- Fix default value of L.Icon.Default.imagePath if this default value is not yet loaded.
+  [bsuttor]
+
 - Fix uninstall warning#1
   [bsuttor]
 
