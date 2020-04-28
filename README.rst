@@ -7,22 +7,11 @@ collective.geo.leaflet
 This package use the collective.geo.* suite with leaflet.
 
 
-Todo
-====
+Documentation
+=============
 
-[ ] Get "attribution" map from registry
-
-[ ] Testing loading map with Robot
-
-[x] Add uninstall profile
-
-[x] Translations
-
-[ ] Simple element view should use geojson
-
-[ ] Use leaflet for control panel map
-
-[ ] Use leaflet for configure map
+Full documentation for end users can be found in the "docs" folder.
+It is also available online at https://collectivegeo.readthedocs.io/
 
 
 Translations
@@ -41,8 +30,24 @@ You can contribute for any message missing or other new languages, join us at
 into *Transifex.net* service with all world Plone translators community.
 
 
-Dependencies
+Installation
 ============
+
+Install collective.geo.leaflet by adding it to your buildout:
+
+   [buildout]
+
+    ...
+
+    eggs =
+        collective.geo.leaflet
+
+
+and then running "bin/buildout"
+
+
+Dependencies
+------------
 
 - collective.geo.behaviour
 - collective.geo.contentlocations
@@ -54,6 +59,7 @@ Dependencies
 - collective.js.leaflet
 - collective.z3cform.mapwidget
 - collective.z3cform.colorpicker
+
 
 How to add baseLayer
 ====================
@@ -92,10 +98,49 @@ And add your javascript into a template file `osm.pt`::
     </script>
 
 
-Tests
-=====
+Todo
+====
+
+[ ] Get "attribution" map from registry
+
+[ ] Testing loading map with Robot
+
+[x] Add uninstall profile
+
+[x] Translations
+
+[ ] Simple element view should use geojson
+
+[ ] Use leaflet for control panel map
+
+[ ] Use leaflet for configure map
+
+
+Tests status
+============
 
 This package is tested using Travis CI. The current status is :
 
-.. image:: https://travis-ci.org/collective/collective.geo.leaflet.svg
+.. image:: https://img.shields.io/travis/collective/collective.geo.leaflet/master.svg
     :target: https://travis-ci.org/collective/collective.geo.leaflet
+
+.. image:: http://img.shields.io/pypi/v/collective.geo.leaflet.svg
+   :target: https://pypi.org/project/collective.geo.leaflet
+
+
+Contribute
+==========
+
+Have an idea? Found a bug? Let us know by `opening a ticket`_.
+
+- Issue Tracker: https://github.com/collective/collective.geo.leaflet/issues
+- Source Code: https://github.com/collective/collective.geo.leaflet
+- Documentation: https://collectivegeo.readthedocs.io/
+
+
+License
+=======
+
+The project is licensed under the GPLv2.
+
+.. _`opening a ticket`: https://github.com/collective/collective.geo.bundle/issues
