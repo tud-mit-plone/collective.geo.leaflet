@@ -24,6 +24,19 @@ Todo
 
 [ ] Use leaflet for configure map
 
+
+Translations
+============
+
+This product has been translated into
+
+- Spanish.
+
+- French.
+
+- Dutch.
+
+
 Dependencies
 ============
 

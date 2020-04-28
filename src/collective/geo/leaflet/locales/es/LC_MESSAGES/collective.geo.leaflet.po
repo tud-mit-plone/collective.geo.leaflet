@@ -1,0 +1,61 @@
+# Translation of collective.geo.leaflet.pot to Spanish
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: collective.geo.leaflet\n"
+"POT-Creation-Date: 2018-09-12 18:43+0000\n"
+"PO-Revision-Date: 2020-04-28 16:29-0400\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
+"Language-Team: ES <LL@li.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+"Language-Code: es\n"
+"Language-Name: Spanish\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.geo.leaflet\n"
+"X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-es es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
+
+#: ../maplayers.py:63
+msgid "Google"
+msgstr "Google"
+
+#: ../maplayers.py:77
+msgid "Hybrid (Google)"
+msgstr "Híbrido (Google)"
+
+#: ../profiles.zcml:13
+msgid "Installs the collective.geo.leaflet add-on."
+msgstr "Instalar el complemento collective.geo.leaflet."
+
+#: ../maplayers.py:57
+msgid "Open Street Map"
+msgstr "Open Street Map"
+
+#: ../profiles.zcml:13
+msgid "Plone Maps (collective.geo) with Leaflet"
+msgstr "Plone Maps (collective.geo) con Leaflet"
+
+#: ../maplayers.py:70
+msgid "Satellite (Google)"
+msgstr "Satélite (Google)"
+
+#: ../maplayers.py:84
+msgid "Terrain (Google)"
+msgstr "Tierra (Google)"
+
+#: ../profiles.zcml:21
+msgid "Uninstall Plone Maps (collective.geo) with Leaflet"
+msgstr "Desinstalar Plone Maps (collective.geo) con Leaflet"
+
+#: ../browser/templates/collectivegeoleaflet_macros.pt:143
+msgid "notFoundAddressMessage"
+msgstr "Dirección no encontrada"
+
+#: ../browser/templates/collectivegeoleaflet_macros.pt:143
+msgid "searchLabel"
+msgstr "Buscar una dirección"
