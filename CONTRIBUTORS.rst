@@ -1,2 +1,3 @@
 - Benoît Suttor, bsuttor@imio.be
 - Martin Peeters [Affinitic]
+- Leonardo J. Caballero G., [Plone Venezuela]
