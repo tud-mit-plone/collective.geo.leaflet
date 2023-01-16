@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<registry>
+<!-- TODO: override the bundle resources for the geo main bundle to only have those three (resourceBundlesForThemes doesnt exist anymore) -->
+<!--    <record interface="Products.ResourceRegistries.interfaces.settings.IResourceRegistriesSettings" field="resourceBundlesForThemes">
+        <value purge="false">
+            <element key="(default)" purge="false">
+                <element>leaflet.minimap</element>
+                <element>leaflet.geosearch</element>
+                <element>leaflet.geosearch.openstreetmap</element>
+            </element>
+        </value>
+    </record> -->
+</registry>
